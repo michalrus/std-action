@@ -3,6 +3,9 @@
 set -e
 set -o pipefail
 
+# michalrus: debug
+set -x
+
 #shellcheck disable=SC2154
 if [[ "$DRV_IMPORT_FROM_DISCOVERY" == "false" ]]; then
    unzstd < "$EVALSTORE_IMPORT/$(basename "$actionDrv").zst" | nix-store --import &>/dev/null
